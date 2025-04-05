@@ -34,8 +34,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "pages/_app.tsx.old_withads"    //"pages/tags/[slug].mdx",
+    ".next/types/**/*.ts",
+    "pages/_app.tsx.old_withads" //"pages/tags/[slug].mdx",
   ],
   "exclude": [
     "node_modules"
