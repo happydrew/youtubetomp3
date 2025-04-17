@@ -154,7 +154,7 @@ const Home = () => {
                                         onClick={handleConvert}
                                         className="flex justify-center items-center w-28 px-2 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
                                         disabled={fetchingDownloadUrl}
-                                        data-ads-attach
+                                    // data-ads-attach
                                     >
                                         Convert
                                         {fetchingDownloadUrl && <CircularProgress sx={{ color: 'white', ml: 1 }} size={20} thickness={5} />}
