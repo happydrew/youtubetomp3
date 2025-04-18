@@ -69,34 +69,13 @@ function Footer() {
             { title: "blog4", url: "" }
           ]}
         /> */}
-        {/* <List
-          title="Code"
+        <List
+          title="Crazy Games"
           items={[
-            { title: "GitHub", url: "https://github.com/happydrew/randompokemongenerator" },
-            {
-              title: "GraphQL Specification",
-              url: "https://spec.graphql.org",
-            },
-            { title: "Libraries & Tools", url: "/code" },
-            { title: "Services & Vendors", url: "/code/?tags=services" },
+            { title: "Crazy Cattle 3D", url: "https://crazycattle3d.fun" },
+            { title: "Baseball Bros IO", url: "https://baseballbrosio.fun" }
           ]}
         />
-        <List
-          title="Community"
-          items={[
-            {
-              title: "Resources",
-              url: "/community/resources/official-channels",
-            },
-            { title: "Events & Meetups", url: "/community/events" },
-            {
-              title: "Contribute to GraphQL",
-              url: "/community/contribute/essential-links",
-            },
-            { title: "Landscape", url: "https://landscape.graphql.org" },
-            { title: "Shop", url: "https://store.graphql.org" },
-          ]}
-        />*/}
         <List
           title="About"
           items={[
