@@ -122,11 +122,14 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* 工具区 */}
             <div className='flex flex-col md:flex-row justify-center items-center w-full'>
-                <div id="left-ads" className='flex flex-col justify-start items-center w-full md:w-1/4 gap-4'>
+
+                {/* <div id="left-ads" className='flex flex-col justify-start items-center w-full md:w-1/4 gap-4'>
                     <div data-banner-id="1444688"></div>
                     <div data-banner-id="1444690"></div>
-                </div>
+                </div> */}
+
                 <div className='flex items-center justify-center w-full md:w-1/2'>
                     <div className='flex flex-col items-center justify-center max-w-2xl'>
                         {/* Header */}
@@ -211,10 +214,12 @@ const Home = () => {
                         </main>
                     </div>
                 </div>
-                <div id="right-ads" className='flex flex-col justify-start items-center w-full md:w-1/4 gap-4'>
+
+                {/* <div id="right-ads" className='flex flex-col justify-start items-center w-full md:w-1/4 gap-4'>
                     <div data-banner-id="1444692"></div>
                     <div data-banner-id="1444693"></div>
-                </div>
+                </div> */}
+
             </div>
 
         </div>
