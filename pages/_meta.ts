@@ -1,4 +1,35 @@
 export default {
+  nanoedit: {
+    type: 'page',
+    title: '🔥Nano Banana Pro',
+    href: 'https://nanoedit.art'
+  },
+  funsites: {
+    type: "menu",
+    title: "Fun Sites",
+    items: {
+      nanoedit: {
+        title: "🔥Nano Banana Pro",
+        href: "https://nanoedit.art/",
+      },
+      compareheights: {
+        title: "Compare Heights",
+        href: "https://compareheights.org/",
+      },
+      "baseball-bros-io": {
+        title: "Baseball Bros Game",
+        href: "https://baseballbrosio.fun",
+      },
+      "curve-rush": {
+        title: "Curve Rush",
+        href: "https://curve-rush.cc",
+      },
+      "crazycattle3d": {
+        title: "Crazy Cattle 3D",
+        href: "https://crazycattle3d.fun",
+      },
+    }
+  },
   index: {
     type: 'page',
     title: 'Home',
