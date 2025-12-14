@@ -4,6 +4,11 @@ export default {
     title: '🔥Nano Banana Pro',
     href: 'https://nanoedit.art'
   },
+  theforgecalculator: {
+    type: "page",
+    title: "🔥The Forge Calculator",
+    href: "https://forgecalculator.info/",
+  },
   funsites: {
     type: "menu",
     title: "Fun Sites",
@@ -15,6 +20,10 @@ export default {
       compareheights: {
         title: "Compare Heights",
         href: "https://compareheights.org/",
+      },
+      theforgecalculator: {
+        title: "🔥The Forge Calculator",
+        href: "https://forgecalculator.info/",
       },
       "baseball-bros-io": {
         title: "Baseball Bros Game",
