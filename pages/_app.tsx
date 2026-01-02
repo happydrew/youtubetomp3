@@ -62,7 +62,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
       `}
     </Script>
 
-    <NanoEditPopup />
+    {/* <NanoEditPopup /> */}
     <Component {...pageProps} />
   </>)
 }
