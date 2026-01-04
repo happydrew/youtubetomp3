@@ -1,17 +1,19 @@
+import { use } from "@node_modules/@types/react";
+
 export default {
   nanoedit: {
     type: 'page',
     title: '🔥Nano Banana Pro',
     href: 'https://nanoedit.art'
   },
-  theforgecalculator: {
+  devilhunter: {
     type: "page",
-    title: "🔥The Forge Calculator",
-    href: "https://theforgecalculator.info/",
+    title: "🔥Devil Hunter Roblox",
+    href: "https://devilhunter.org/",
   },
-  funsites: {
+  usefultools: {
     type: "menu",
-    title: "Fun Sites",
+    title: "Useful Tools",
     items: {
       nanoedit: {
         title: "🔥Nano Banana Pro",
@@ -20,6 +22,10 @@ export default {
       compareheights: {
         title: "Compare Heights",
         href: "https://compareheights.org/",
+      },
+      devilhunter: {
+        title: "🔥Devil Hunter Roblox",
+        href: "https://devilhunter.org/",
       },
       theforgecalculator: {
         title: "🔥The Forge Calculator",
