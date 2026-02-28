@@ -3,8 +3,8 @@ import { use } from "@node_modules/@types/react";
 export default {
   nanoedit: {
     type: 'page',
-    title: '🔥Nano Banana Pro',
-    href: 'https://nanoedit.art'
+    title: '🔥Nano Banana 2',
+    href: 'https://trybanana2.com'
   },
   devilhunter: {
     type: "page",
@@ -16,8 +16,8 @@ export default {
     title: "Useful Tools",
     items: {
       nanoedit: {
-        title: "🔥Nano Banana Pro",
-        href: "https://nanoedit.art/",
+        title: "🔥Nano Banana 2",
+        href: "https://trybanana2.com/",
       },
       compareheights: {
         title: "Compare Heights",

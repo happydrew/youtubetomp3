@@ -22,8 +22,8 @@ interface NanoEditPopupProps {
     exitIntent?: boolean;
 }
 
-const STORAGE_KEY_PERMANENT = 'nanoedit_ad_permanent_hide';
-const STORAGE_KEY_COUNT = 'nanoedit_ad_visit_count';
+const STORAGE_KEY_PERMANENT = 'trybanana2_ad_permanent_hide';
+const STORAGE_KEY_COUNT = 'trybanana2_ad_visit_count';
 
 export const NanoEditPopup: React.FC<NanoEditPopupProps> = ({
     delay = 5000
@@ -89,7 +89,7 @@ export const NanoEditPopup: React.FC<NanoEditPopupProps> = ({
     };
 
     const handleCTA = () => {
-        window.open('https://nanoedit.art', '_blank');
+        window.open('https://trybanana2.com', '_blank');
         handleClose();
     };
 
@@ -125,9 +125,9 @@ export const NanoEditPopup: React.FC<NanoEditPopupProps> = ({
                     {/* Header Logo */}
                     <div className="flex items-center gap-2 mb-4">
                         <div className="w-6 h-6 rounded bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs shadow-lg shadow-indigo-500/30">
-                            N
+                            T
                         </div>
-                        <span className="text-white/90 font-semibold tracking-wide text">NanoEdit</span>
+                        <span className="text-white/90 font-semibold tracking-wide text">TryBanana2</span>
                     </div>
 
                     {/* Headline - Punchy & Short */}
@@ -140,7 +140,7 @@ export const NanoEditPopup: React.FC<NanoEditPopupProps> = ({
 
                     {/* Subhead - Concise */}
                     <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                        Generate stunning 4K images with perfect text rendering. Powered by <span className="text-slate-200">Nano Banana Pro</span>.
+                        Generate stunning 4K images with perfect text rendering. Powered by <span className="text-slate-200">Nano Banana 2</span>.
                     </p>
 
                     {/* Features - Compact Grid */}
@@ -157,7 +157,7 @@ export const NanoEditPopup: React.FC<NanoEditPopupProps> = ({
                         className="w-full py-3.5 px-6 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
                     >
                         <SparklesIcon className="w-4 h-4" />
-                        <span>Try NanoEdit Free</span>
+                        <span>Try TryBanana2 Free</span>
                         <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
 
@@ -182,7 +182,7 @@ export const NanoEditPopup: React.FC<NanoEditPopupProps> = ({
                 <div className="flex justify-center items-center w-full h-full md:w-1/2 aspect-[3/2] bg-gradient-to-b from-[#0F172A] to-[#0b1121] overflow-hidden group border-b md:border-b-0 md:border-l border-white/5">
                     {/* Background Image */}
                     <img
-                        src="https://nanoedit.art/imgs/examples/advanced_text_rendering.webp"
+                        src="https://trybanana2.com/imgs/examples/advanced_text_rendering.webp"
                         alt="Cyberpunk Aesthetic"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                     />
