@@ -72,6 +72,7 @@ function Footer() {
         <List
           title="Crazy Games"
           items={[
+            { title: "AI Video Generator", url: "https://veogen.art" },
             { title: "Crazy Cattle 3D", url: "https://crazycattle3d.fun" },
             { title: "Baseball Bros IO", url: "https://baseballbrosio.fun" }
           ]}

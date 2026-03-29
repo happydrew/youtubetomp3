@@ -3,7 +3,7 @@ import { type ReactElement } from 'react'
 import Script from 'next/script';
 import Head from 'next/head';
 import '../style.css';
-import NanoEditPopup from '@components/nanoedit-popup/NanoEditPopup';
+import VeogenPopup from '@components/veogen-popup/VeogenPopup';
 
 export default function App({ Component, pageProps }: AppProps): ReactElement {
   // useEffect(() => {
@@ -62,7 +62,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
       `}
     </Script>
 
-    <NanoEditPopup />
+    <VeogenPopup />
     <Component {...pageProps} />
   </>)
 }

@@ -1,10 +1,10 @@
 import { use } from "@node_modules/@types/react";
 
 export default {
-  nanoedit: {
+  veogen: {
     type: 'page',
-    title: '🔥Nano Banana 2',
-    href: 'https://trybanana2.com'
+    title: '🔥AI Video Generator',
+    href: 'https://veogen.art'
   },
   devilhunter: {
     type: "page",
@@ -15,8 +15,12 @@ export default {
     type: "menu",
     title: "Useful Tools",
     items: {
+      veogen: {
+        title: "🔥AI Video Generator",
+        href: "https://veogen.art/",
+      },
       nanoedit: {
-        title: "🔥Nano Banana 2",
+        title: "Nano Banana 2",
         href: "https://trybanana2.com/",
       },
       compareheights: {
