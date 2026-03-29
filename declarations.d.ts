@@ -6,3 +6,5 @@ declare module "*.mdx" {
     export default ReactComponent
     export const getStaticPaths: GetStaticPaths
 }
+
+declare module "*.css";
