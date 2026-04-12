@@ -1,4 +1,3 @@
-import { use } from "@node_modules/@types/react";
 
 export default {
   veogen: {
@@ -6,18 +5,22 @@ export default {
     title: '🔥AI Video Generator',
     href: 'https://veogen.art'
   },
-  devilhunter: {
+  happyhorse: {
     type: "page",
-    title: "🔥Devil Hunter Roblox",
-    href: "https://devilhunter.org/",
+    title: "🔥HappyHorse 1.0",
+    href: "https://happyhorsegen.video",
   },
   usefultools: {
     type: "menu",
     title: "Useful Tools",
     items: {
+      happyhorse: {
+        title: "🔥HappyHorse 1.0",
+        href: "https://happyhorsegen.video",
+      },
       veogen: {
         title: "🔥AI Video Generator",
-        href: "https://veogen.art/",
+        href: "https://veogen.art",
       },
       nanoedit: {
         title: "Nano Banana 2",
