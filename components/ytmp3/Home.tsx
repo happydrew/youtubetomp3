@@ -3,6 +3,10 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Image from 'next/image';
 import { yt2mp3Url } from '../../ezymp3.config';
 
+const AD_UNLOCK_SECONDS = 10;
+const AD_DESTINATION_URL = process.env.NEXT_PUBLIC_PRIMARY_AD_LINK || 'https://www.effectivecpmnetwork.com/zezmmfcxw?key=06caf17533b0531e88a99ae7c5677df9';
+
+type AdGateStatus = 'idle' | 'waiting' | 'unlocked';
 
 const Home = () => {
     const [videoURL, setVideoURL] = useState('');
@@ -12,6 +16,10 @@ const Home = () => {
     const [showDownloadTip, setShowDownloadTip] = useState(false);
     const [downloadUrl, setDownloadUrl] = useState('');
     const [waitingDownload, setWaitingDownload] = useState(false);
+    const [adGateStatus, setAdGateStatus] = useState<AdGateStatus>('idle');
+    const [adGateCountdown, setAdGateCountdown] = useState(AD_UNLOCK_SECONDS);
+    const [smartLinkOpened, setSmartLinkOpened] = useState(false);
+    const [showAdConfirm, setShowAdConfirm] = useState(false);
 
     const handleConvert = async () => {
         //检测输入的URL是否有效，并提取视频ID
@@ -73,30 +81,86 @@ const Home = () => {
         }
     };
 
+    const openAdLink = () => {
+        if (!AD_DESTINATION_URL || typeof window === 'undefined') {
+            return false;
+        }
+
+        const link = document.createElement('a');
+        link.href = AD_DESTINATION_URL;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        return true;
+    };
+
+    const unlockDownloadWithAd = async () => {
+        const didOpenSmartLink = openAdLink();
+        setSmartLinkOpened(didOpenSmartLink);
+
+        setAdGateStatus('waiting');
+        setAdGateCountdown(AD_UNLOCK_SECONDS);
+
+        for (let seconds = AD_UNLOCK_SECONDS; seconds > 0; seconds--) {
+            setAdGateCountdown(seconds);
+            await new Promise((resolve) => window.setTimeout(resolve, 1000));
+        }
+
+        setAdGateCountdown(0);
+        setAdGateStatus('unlocked');
+    };
+
     const handleDownload = () => {
         if (!downloadUrl) {
             alert('Please wait for the conversion to complete before downloading.');
             return;
         }
+        setShowAdConfirm(true);
+    };
+
+    const handleConfirmAd = async () => {
+        setShowAdConfirm(false);
         // 这里调用你的API逻辑来下载视频
         setWaitingDownload(true);
-        downloadFile(downloadUrl);
-        setDownloadUrl('');
-        setTimeout(() => {
+        try {
+            await unlockDownloadWithAd();
+            downloadFile(downloadUrl);
+            setDownloadUrl('');
+            setTimeout(() => {
+                setWaitingDownload(false);
+                setShowDownloadButton(false);
+                setShowDownloadTip(true);
+                setAdGateStatus('idle');
+                setAdGateCountdown(AD_UNLOCK_SECONDS);
+                setSmartLinkOpened(false);
+            }, 4000);
+        } catch (error) {
+            console.error('Failed to unlock download with ad: ', error);
+            alert('Opps, something went wrong while opening the ad. Please try again.');
             setWaitingDownload(false);
-            setShowDownloadButton(false);
-            setShowDownloadTip(true);
-        }, 4000);
+            setAdGateStatus('idle');
+            setAdGateCountdown(AD_UNLOCK_SECONDS);
+            setSmartLinkOpened(false);
+        }
     };
 
     // 下载文件函数
+    const handleCancelAd = () => {
+        setShowAdConfirm(false);
+    };
+
     function downloadFile(url: string) {
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = '';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = url;
+        document.body.appendChild(iframe);
+
+        window.setTimeout(() => {
+            document.body.removeChild(iframe);
+        }, 30000);
     }
 
     useEffect(() => {
@@ -167,9 +231,10 @@ const Home = () => {
                                 <div className="flex justify-center items-center space-x-2">
                                     <button
                                         onClick={handleDownload}
-                                        className={`${showDownloadButton ? '' : 'hidden '}flex justify-center items-center w-40 px-4 py-2 bg-zinc-800 text-white rounded-md hover:bg-zinc-900 transition`}
+                                        disabled={waitingDownload}
+                                        className={`${showDownloadButton ? '' : 'hidden '}flex justify-center items-center min-w-52 px-4 py-2 bg-zinc-800 text-white rounded-md hover:bg-zinc-900 transition disabled:cursor-not-allowed disabled:opacity-80`}
                                     >
-                                        Download
+                                        {waitingDownload ? 'Unlocking Download' : 'Watch Ad & Download'}
                                         {waitingDownload && <CircularProgress sx={{ color: 'white', ml: 1 }} size={20} thickness={5} />}
 
                                     </button>
@@ -182,6 +247,41 @@ const Home = () => {
                                         <span className='text-xs text-red-400'>Tip: If the downloaded file lacks an extension, rename it and add the .mp3 suffix to play it properly.</span>
                                     </div>}
                                 </div>
+                                {showAdConfirm && <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+                                    <div className="w-full max-w-sm rounded-lg bg-white p-5 text-gray-800 shadow-xl">
+                                        <h3 className="mb-2 text-lg font-semibold">Support free downloads</h3>
+                                        <p className="mb-5 text-sm leading-6 text-gray-600">
+                                            To keep this service free, we will briefly open a sponsor page before preparing your download.
+                                        </p>
+                                        <div className="flex justify-end gap-3">
+                                            <button
+                                                type="button"
+                                                onClick={handleCancelAd}
+                                                className="rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-700 transition hover:bg-gray-50"
+                                            >
+                                                Cancel
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={handleConfirmAd}
+                                                className="rounded-md bg-zinc-900 px-4 py-2 text-sm text-white transition hover:bg-zinc-800"
+                                            >
+                                                Continue
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>}
+                                {waitingDownload && adGateStatus !== 'idle' && <div className="mt-4 rounded-md border border-blue-100 bg-blue-50 px-4 py-3 text-center text-sm text-blue-900">
+                                    {adGateStatus === 'waiting' && <>
+                                        {smartLinkOpened
+                                            ? 'Sponsor ad opened in a new tab. '
+                                            : AD_DESTINATION_URL
+                                                ? 'Sponsor ad was requested. '
+                                                : 'Sponsor link is not configured yet. '}
+                                        Your free download unlocks in <strong>{adGateCountdown}</strong> seconds.
+                                    </>}
+                                    {adGateStatus === 'unlocked' && 'Download unlocked. Preparing your MP3...'}
+                                </div>}
                             </div>
 
                             {/* Info Section */}

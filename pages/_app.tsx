@@ -28,12 +28,7 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
     </Script> */}
 
 
-    {/* monetag ads - Vignette Banner 8833160 */}
-    <Script>
-      {`
-      (function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('gizokraijaw.net',8833160,document.createElement('script'))
-      `}
-    </Script>
+    {/* Monetag interstitial is loaded on download click in components/ytmp3/Home.tsx. */}
 
 
     {/* monetag ads - In-Page Push 8833149 */}
@@ -42,13 +37,6 @@ export default function App({ Component, pageProps }: AppProps): ReactElement {
       (function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',8833149,document.createElement('script'))
       `}
     </Script> */}
-
-    {/* monetag ads - Native Banner (Interstitial) 8833215 */}
-    <Script>
-      {`
-      (function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',8833215,document.createElement('script'))
-      `}
-    </Script>
 
     {/* Google tag (gtag.js)  */}
     <Script async src="https://www.googletagmanager.com/gtag/js?id=G-54K88LRQBS" strategy='afterInteractive'></Script>
